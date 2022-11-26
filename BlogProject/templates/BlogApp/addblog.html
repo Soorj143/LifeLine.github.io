@@ -1,0 +1,60 @@
+{% extends 'BlogApp/base.html' %}
+
+
+{% block js %}
+{% endblock js %}
+
+
+{% block title %}
+<title>Add Blog Page</title>
+{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="container p-3 text-center bg-warning rounded-3 shadow">
+    <h1 class="display-5">Add Blog</h1>
+</div>
+
+
+<div class="container my-4 w-75">
+
+    <form action="{% url 'addblog' %}" method="post">
+        {% csrf_token %}
+
+        <!-- title div -->
+        <div class="mb-3">
+
+            <label for="title">Enter Blog Name</label>
+            <input type="text" name="title" id="title" class="form-control" required>
+
+        </div>
+
+
+        <!-- description div -->
+        <div class="mb-3">
+
+            <label for="desc">Enter Blog Description</label>
+            <textarea name="desc" id="desc" cols="30" rows="10" class="form-control" required></textarea>
+
+        </div>
+
+
+        <!-- button div -->
+        <div class="mb-3 text-center">
+            <input type="submit" value="Add Blog" class="btn btn-success">
+            <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+
+
+
+
+    </form>
+
+
+
+</div>
+
+
+{% endblock body %}

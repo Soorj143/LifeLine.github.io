@@ -1,0 +1,38 @@
+{% extends 'BlogApp/base.html' %}
+
+
+{% block js %}
+{% endblock js %}
+
+
+{% block title %}
+<title>Home Page</title>
+{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="container p-3 text-center bg-warning rounded-3 shadow">
+    <h1 class="display-5">All Blogs</h1>
+</div>
+
+{% for row in blogs %}
+
+<div class="container p-3 m-3 shadow">
+
+    <p class="display-6">{{row.title}}</p>
+    <p class="lead">{{row.desc}}</p>
+
+    <div class="container py-3">
+        <a href="{% url 'updateblog' row.id %}" class="btn btn-success">Update</a>
+        <a href="{% url 'deleteblog' row.id %}" class="btn btn-danger">Delete</a>
+    </div>    
+
+</div>
+
+
+{% endfor %}
+
+
+{% endblock body %}
